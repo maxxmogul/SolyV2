@@ -1,4 +1,5 @@
 
+if (typeof document !== 'undefined') {
 document.addEventListener("DOMContentLoaded", function() {
 
 	window.getUsername = function(){
@@ -16,3 +17,4 @@ document.addEventListener("DOMContentLoaded", function() {
 	window.SCORE_DATA = { name: null, score: 0 }
 	
 });
+}

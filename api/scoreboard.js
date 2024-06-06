@@ -1,7 +1,7 @@
-if (typeof document !== 'undefined') {
-    document.addEventListener("DOMContentLoaded", function() {
-        window.showScore = function() {
-            return window.SCORE_DATA;
-        }
-    });
-}
+// scoreboard.js
+function handleScoreboard(name, score) {
+    // Code to handle scoreboard logic
+    console.log(`Name: ${name}, Score: ${score}`);
+  }
+  
+  module.exports = handleScoreboard;
