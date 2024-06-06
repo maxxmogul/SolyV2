@@ -1,5 +1,14 @@
 {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "SolyV2" }
-    ]
-  }
+  "version": 2,
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "game.js", "use": "@vercel/static" },
+    { "src": "game.css", "use": "@vercel/static" },
+    { "src": "media/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
