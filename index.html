@@ -24,7 +24,7 @@
     window.SCORE_DATA.score = score;
 
     // Send the data to the server-side
-    fetch('/api/scoreboard', {
+    fetch('/api/handleScoreboard', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
