@@ -3,8 +3,8 @@
     { "source": "/(.+)", "destination": "/SolyV2" }
   ],
   "functions": {
-    "api/**/*.js": {
-      "includeFiles": "api/**/*.js"
+    "api/scoreboard.js": {
+      "includeFiles": "api/scoreboard.js"
     }
   }
 }
