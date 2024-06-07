@@ -17,11 +17,30 @@
             console.log("startGame")
         }
 
-        window.endGame = function(name, score, coin){
-            console.log("endGame. Score: "+score+", coins: "+coin+", Name: "+name);
-            window.SCORE_DATA.name = name;
-            window.SCORE_DATA.score = score;
+        window.endGame = function(name, score, coin) {
+    console.log("endGame. Score: " + score + ", coins: " + coin + ", Name: " + name);
+    window.SCORE_DATA.name = name;
+    window.SCORE_DATA.score = score;
+
+    // Send the data to the server-side
+    fetch('/api/scoreboard', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, score })
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Scoreboard data sent successfully');
+        } else {
+            console.error('Failed to send scoreboard data');
         }
+    })
+    .catch(error => {
+        console.error('Error sending scoreboard data:', error);
+    });
+}
 
     </script>
 
