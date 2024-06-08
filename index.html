@@ -8,9 +8,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="stylesheet" type="text/css" href="game.css?v=1717572858">
     <script type="text/javascript" src="game.js?v=1717572858"></script>
-    <script type="text/javascript" src="api/scoreboardUtils.js"></script>
+
     <script type="text/javascript" src="api/scoreboard.js"></script>
-    <link rel="stylesheet" type="text/css" href="api/score.css">
+    <script type="text/javascript" src="api/scoreboardUtils.js"></script>
+    <link rel="stylesheet" type="text/css" href="api/api.css">
 
 <!-- AnalyticsCode -->
     <script type="text/javascript">
@@ -19,30 +20,11 @@
             console.log("startGame")
         }
 
-        window.endGame = function(name, score, coin) {
-    console.log("endGame. Score: " + score + ", coins: " + coin + ", Name: " + name);
-    window.SCORE_DATA.name = name;
-    window.SCORE_DATA.score = score;
-
-    // Send the data to the server-side
-    fetch('/api/handleScoreboard', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name, score })
-    })
-    .then(response => {
-        if (response.ok) {
-            console.log('Scoreboard data sent successfully');
-        } else {
-            console.error('Failed to send scoreboard data');
+        window.endGame = function(name, score, coin){
+            console.log("endGame. Score: "+score+", coins: "+coin+", Name: "+name);
+            window.SCORE_DATA.name = name;
+            window.SCORE_DATA.score = score;
         }
-    })
-    .catch(error => {
-        console.error('Error sending scoreboard data:', error);
-    });
-}
 
     </script>
 
@@ -178,9 +160,6 @@
                 <div class="btn-submit" onclick="window.getUsername()">SUBMIT</div>
             </div>
         </div>
-
-        <script type="text/javascript" src="api/handleScoreboard.js"></script>
-
 
     </body>
 </html>
